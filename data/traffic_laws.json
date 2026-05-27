@@ -1,0 +1,1011 @@
+[
+{
+"id": "DEN_DO_XEMAY",
+"type": "violation",
+"title": "Xe máy vượt đèn đỏ",
+"vehicle": "Xe máy",
+"keywords": [
+"vượt đèn đỏ xe máy",
+"xe máy vượt đèn vàng",
+"không chấp hành tín hiệu đèn"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Người điều khiển xe máy không chấp hành hiệu lệnh của đèn tín hiệu giao thông.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 4",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "DEN_DO_OTO",
+"type": "violation",
+"title": "Ô tô vượt đèn đỏ",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô vượt đèn đỏ",
+"xe hơi vượt đèn vàng",
+"không chấp hành tín hiệu đèn ô tô"
+],
+"fine": {
+"min": "18.000.000 đồng",
+"max": "20.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Người điều khiển ô tô không chấp hành hiệu lệnh của đèn tín hiệu giao thông.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 9",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "MU_BH_XEMAY",
+"type": "violation",
+"title": "Xe máy không đội mũ bảo hiểm",
+"vehicle": "Xe máy",
+"keywords": [
+"không đội mũ",
+"quên mũ bảo hiểm",
+"không cài quai"
+],
+"fine": {
+"min": "400.000 đồng",
+"max": "600.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển hoặc người ngồi trên xe máy không đội mũ bảo hiểm hoặc đội không cài quai đúng quy cách.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 2",
+"point": "Điểm i"
+}
+},
+
+{
+"id": "DI_SAI_LAN_XEMAY",
+"type": "violation",
+"title": "Xe máy đi sai làn đường",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy đi sai làn",
+"lấn làn xe máy",
+"đi sai phần đường"
+],
+"fine": {
+"min": "600.000 đồng",
+"max": "800.000 đồng"
+},
+"additional_penalty": [
+"Có thể bị trừ điểm GPLX"
+],
+"content": "Điều khiển xe máy đi không đúng phần đường hoặc làn đường quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 3",
+"point": "Điểm g"
+}
+},
+
+{
+"id": "DI_SAI_LAN_OTO",
+"type": "violation",
+"title": "Ô tô đi sai làn đường",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô đi sai làn",
+"xe hơi lấn làn",
+"ô tô đi sai phần đường"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Điều khiển ô tô đi không đúng phần đường hoặc làn đường quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 5",
+"point": "Điểm đ"
+}
+},
+{
+"id": "CON_XEMAY_M1",
+"type": "violation",
+"title": "Xe máy vi phạm nồng độ cồn mức 1",
+"vehicle": "Xe máy",
+"keywords": [
+"cồn xe máy mức 1",
+"thổi nồng độ cồn",
+"dưới 0.25mg"
+],
+"fine": {
+"min": "6.000.000 đồng",
+"max": "8.000.000 đồng"
+},
+"additional_penalty": [
+"Tước GPLX từ 10 - 12 tháng",
+"Trừ điểm GPLX"
+],
+"content": "Người điều khiển xe máy có nồng độ cồn chưa vượt quá 0,25 mg/1 lít khí thở.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 6",
+"point": "Điểm c"
+}
+},
+
+{
+"id": "CON_XEMAY_M3",
+"type": "violation",
+"title": "Xe máy vi phạm nồng độ cồn mức cao nhất",
+"vehicle": "Xe máy",
+"keywords": [
+"cồn xe máy kịch khung",
+"quá 0.4mg",
+"nồng độ cồn xe máy cao"
+],
+"fine": {
+"min": "10.000.000 đồng",
+"max": "14.000.000 đồng"
+},
+"additional_penalty": [
+"Tước GPLX từ 22 - 24 tháng",
+"Tạm giữ xe",
+"Trừ điểm GPLX"
+],
+"content": "Người điều khiển xe máy có nồng độ cồn vượt quá 0,4 mg/1 lít khí thở.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 8",
+"point": "Điểm e"
+}
+},
+
+{
+"id": "CON_OTO_M3",
+"type": "violation",
+"title": "Ô tô vi phạm nồng độ cồn mức cao nhất",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô quá 0.4mg",
+"cồn ô tô mức cao",
+"nồng độ cồn ô tô"
+],
+"fine": {
+"min": "30.000.000 đồng",
+"max": "40.000.000 đồng"
+},
+"additional_penalty": [
+"Tước GPLX từ 22 - 24 tháng",
+"Trừ điểm GPLX"
+],
+"content": "Người điều khiển ô tô có nồng độ cồn vượt quá 0,4 mg/1 lít khí thở hoặc vượt quá 80 mg/100 ml máu.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 11",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "KHONG_GUONG_XEMAY",
+"type": "violation",
+"title": "Xe máy không có gương chiếu hậu",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy không gương",
+"thiếu gương trái",
+"không có kính hậu"
+],
+"fine": {
+"min": "200.000 đồng",
+"max": "300.000 đồng"
+},
+"additional_penalty": [],
+"content": "Xe máy không có gương chiếu hậu bên trái hoặc có nhưng không có tác dụng.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 17",
+"clause": "Khoản 1",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "KHONG_BAOHIEM_XEMAY",
+"type": "violation",
+"title": "Xe máy không có bảo hiểm bắt buộc",
+"vehicle": "Xe máy",
+"keywords": [
+"không có bảo hiểm",
+"thiếu bảo hiểm xe máy",
+"quên bảo hiểm"
+],
+"fine": {
+"min": "200.000 đồng",
+"max": "300.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển xe máy không mang theo hoặc không có bảo hiểm trách nhiệm dân sự bắt buộc.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 21",
+"clause": "Khoản 2",
+"point": "Điểm a"
+}
+},
+{
+"id": "TOCDO_XEMAY_10_20",
+"type": "violation",
+"title": "Xe máy chạy quá tốc độ 10-20km/h",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy quá tốc độ",
+"bắn tốc độ xe máy",
+"vượt tốc độ xe máy"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "1.000.000 đồng"
+},
+"additional_penalty": [
+"Có thể bị trừ điểm GPLX"
+],
+"content": "Điều khiển xe máy chạy quá tốc độ quy định từ 10 km/h đến 20 km/h.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 4",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "TOCDO_OTO_5_10",
+"type": "violation",
+"title": "Ô tô chạy quá tốc độ 5-10km/h",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô quá tốc độ",
+"bắn tốc độ ô tô",
+"xe hơi chạy nhanh"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "1.000.000 đồng"
+},
+"additional_penalty": [],
+"content": "Điều khiển ô tô chạy quá tốc độ quy định từ 05 km/h đến dưới 10 km/h.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 3",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "NGUOC_CHIEU_XEMAY",
+"type": "violation",
+"title": "Xe máy đi ngược chiều",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy đi ngược chiều",
+"đi ngược chiều",
+"đường một chiều"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Điều khiển xe máy đi ngược chiều của đường một chiều hoặc đường có biển cấm đi ngược chiều.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 5",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "KHONG_GPLX_OTO",
+"type": "violation",
+"title": "Ô tô không có bằng lái xe",
+"vehicle": "Ô tô",
+"keywords": [
+"không bằng lái ô tô",
+"không có GPLX",
+"quên bằng lái ô tô"
+],
+"fine": {
+"min": "18.000.000 đồng",
+"max": "20.000.000 đồng"
+},
+"additional_penalty": [
+"Tạm giữ phương tiện",
+"Trừ điểm GPLX"
+],
+"content": "Người điều khiển ô tô không có Giấy phép lái xe hoặc sử dụng GPLX không hợp lệ.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 18",
+"clause": "Khoản 9",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "DUNG_DO_SAI_QUY_DINH",
+"type": "violation",
+"title": "Ô tô dừng đỗ sai quy định",
+"vehicle": "Ô tô",
+"keywords": [
+"đỗ xe sai quy định",
+"dừng xe trái phép",
+"cấm dừng đỗ"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "1.000.000 đồng"
+},
+"additional_penalty": [],
+"content": "Dừng hoặc đỗ xe tại nơi có biển cấm dừng, cấm đỗ hoặc khu vực không được phép.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 3",
+"point": "Điểm c"
+}
+},
+{
+"id": "GPLX_A1",
+"type": "license",
+"title": "Bằng lái xe hạng A1",
+"vehicle": "Xe máy",
+"keywords": [
+"bằng A1",
+"GPLX A1",
+"xe dưới 175cc"
+],
+"fine": {
+"min": "Không áp dụng",
+"max": "Không áp dụng"
+},
+"additional_penalty": [],
+"content": "Giấy phép lái xe hạng A1 cấp cho người điều khiển xe mô tô hai bánh có dung tích xi-lanh từ 50cm3 đến dưới 175cm3.",
+"law_reference": "Luật Trật tự an toàn giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 57",
+"clause": "Khoản 1",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "GPLX_B2",
+"type": "license",
+"title": "Bằng lái xe hạng B2",
+"vehicle": "Ô tô",
+"keywords": [
+"bằng B2",
+"GPLX B2",
+"lái xe 9 chỗ"
+],
+"fine": {
+"min": "Không áp dụng",
+"max": "Không áp dụng"
+},
+"additional_penalty": [],
+"content": "Giấy phép lái xe hạng B2 cho phép điều khiển ô tô chở người đến 9 chỗ và xe tải dưới 3,5 tấn.",
+"law_reference": "Luật Trật tự an toàn giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 57",
+"clause": "Khoản 2",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "P102_CAM_NGUOC_CHIEU",
+"type": "sign",
+"title": "Biển báo cấm đi ngược chiều",
+"vehicle": "Tất cả phương tiện",
+"keywords": [
+"biển P102",
+"cấm đi ngược chiều",
+"đường một chiều"
+],
+"fine": {
+"min": "Theo lỗi vi phạm",
+"max": "Theo lỗi vi phạm"
+},
+"additional_penalty": [],
+"content": "Biển P.102 báo hiệu cấm tất cả các loại phương tiện đi vào theo chiều đặt biển.",
+"law_reference": "QCVN 41:2019/BGTVT",
+"legal_basis": {
+"article": "Phụ lục B",
+"clause": "Biển P.102",
+"point": "N/A"
+}
+},
+
+{
+"id": "P103A_CAM_OTO",
+"type": "sign",
+"title": "Biển báo cấm ô tô",
+"vehicle": "Ô tô",
+"keywords": [
+"biển P103a",
+"cấm ô tô",
+"đường cấm xe hơi"
+],
+"fine": {
+"min": "Theo lỗi vi phạm",
+"max": "Theo lỗi vi phạm"
+},
+"additional_penalty": [],
+"content": "Biển P.103a báo hiệu cấm các loại ô tô đi vào đoạn đường có đặt biển.",
+"law_reference": "QCVN 41:2019/BGTVT",
+"legal_basis": {
+"article": "Phụ lục B",
+"clause": "Biển P.103a",
+"point": "N/A"
+}
+},
+
+{
+"id": "P106A_CAM_XETAI",
+"type": "sign",
+"title": "Biển báo cấm xe tải",
+"vehicle": "Xe tải",
+"keywords": [
+"biển P106a",
+"cấm xe tải",
+"đường cấm xe tải"
+],
+"fine": {
+"min": "Theo lỗi vi phạm",
+"max": "Theo lỗi vi phạm"
+},
+"additional_penalty": [],
+"content": "Biển P.106a báo hiệu cấm các loại xe tải có trọng lượng vượt mức quy định đi vào.",
+"law_reference": "QCVN 41:2019/BGTVT",
+"legal_basis": {
+"article": "Phụ lục B",
+"clause": "Biển P.106a",
+"point": "N/A"
+}
+},
+
+{
+"id": "KHONG_CHINH_CHU",
+"type": "violation",
+"title": "Xe không chính chủ",
+"vehicle": "Tất cả phương tiện",
+"keywords": [
+"xe không chính chủ",
+"không sang tên xe",
+"mua xe không sang tên"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "8.000.000 đồng"
+},
+"additional_penalty": [],
+"content": "Chủ phương tiện không thực hiện thủ tục sang tên theo quy định khi mua bán, cho tặng hoặc chuyển nhượng xe.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 32",
+"clause": "Khoản 4",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "DI_VAO_DUONG_CAM_XEMAY",
+"type": "violation",
+"title": "Xe máy đi vào đường cấm",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy vào đường cấm",
+"đi vào phố cấm",
+"đường cấm xe máy"
+],
+"fine": {
+"min": "2.000.000 đồng",
+"max": "3.000.000 đồng"
+},
+"additional_penalty": [
+"Có thể bị trừ điểm GPLX"
+],
+"content": "Điều khiển xe máy đi vào khu vực hoặc tuyến đường có biển báo cấm xe máy.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 4",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "DI_VAO_DUONG_CAM_OTO",
+"type": "violation",
+"title": "Ô tô đi vào đường cấm",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô vào đường cấm",
+"xe hơi vào phố cấm",
+"đường cấm ô tô"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Điều khiển ô tô đi vào khu vực hoặc tuyến đường có biển báo cấm ô tô.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 5",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "KHONG_GPLX_XEMAY",
+"type": "violation",
+"title": "Xe máy không có bằng lái",
+"vehicle": "Xe máy",
+"keywords": [
+"không bằng lái xe máy",
+"không có GPLX A1",
+"quên bằng lái xe máy"
+],
+"fine": {
+"min": "2.000.000 đồng",
+"max": "4.000.000 đồng"
+},
+"additional_penalty": [
+"Tạm giữ phương tiện"
+],
+"content": "Người điều khiển xe máy không có Giấy phép lái xe hoặc sử dụng GPLX không hợp lệ.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 18",
+"clause": "Khoản 5",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "VUOT_AU_XEMAY",
+"type": "violation",
+"title": "Xe máy vượt ẩu",
+"vehicle": "Xe máy",
+"keywords": [
+"vượt ẩu xe máy",
+"vượt xe sai quy định",
+"xe máy vượt nguy hiểm"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Điều khiển xe máy vượt xe trong các trường hợp cấm vượt hoặc vượt không đảm bảo an toàn.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 5",
+"point": "Điểm d"
+}
+},
+
+{
+"id": "DIEN_THOAI_XEMAY",
+"type": "violation",
+"title": "Xe máy sử dụng điện thoại khi lái xe",
+"vehicle": "Xe máy",
+"keywords": [
+"dùng điện thoại xe máy",
+"nghe điện thoại khi lái xe",
+"xe máy cầm điện thoại"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "1.000.000 đồng"
+},
+"additional_penalty": [
+"Có thể bị trừ điểm GPLX"
+],
+"content": "Người điều khiển xe máy sử dụng điện thoại di động hoặc thiết bị âm thanh khi đang lái xe.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 4",
+"point": "Điểm h"
+}
+},
+
+{
+"id": "DIEN_THOAI_OTO",
+"type": "violation",
+"title": "Ô tô sử dụng điện thoại khi lái xe",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô dùng điện thoại",
+"lái xe nghe điện thoại",
+"xe hơi cầm điện thoại"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX"
+],
+"content": "Người điều khiển ô tô dùng tay sử dụng điện thoại khi xe đang di chuyển.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 6",
+"point": "Điểm c"
+}
+},
+
+{
+"id": "CHO_QUA_NGUOI_XEMAY",
+"type": "violation",
+"title": "Xe máy chở quá số người quy định",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy chở 3",
+"chở quá người",
+"xe máy chở 4"
+],
+"fine": {
+"min": "400.000 đồng",
+"max": "600.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển xe máy chở theo từ 03 người trở lên trên xe, trừ trường hợp được phép.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 3",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "KHONG_XINHAN_XEMAY",
+"type": "violation",
+"title": "Xe máy chuyển hướng không xi nhan",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy không xi nhan",
+"rẽ không bật xi nhan",
+"quên xi nhan xe máy"
+],
+"fine": {
+"min": "100.000 đồng",
+"max": "200.000 đồng"
+},
+"additional_penalty": [],
+"content": "Chuyển hướng nhưng không có tín hiệu báo rẽ theo quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 2",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "KHONG_XINHAN_OTO",
+"type": "violation",
+"title": "Ô tô chuyển hướng không xi nhan",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô không xi nhan",
+"xe hơi quên xi nhan",
+"rẽ không bật tín hiệu"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "1.000.000 đồng"
+},
+"additional_penalty": [],
+"content": "Chuyển hướng nhưng không bật tín hiệu báo hướng rẽ theo quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 3",
+"point": "Điểm a"
+}
+},
+{
+"id": "KHONG_MANG_DANGKY_XEMAY",
+"type": "violation",
+"title": "Xe máy không mang đăng ký xe",
+"vehicle": "Xe máy",
+"keywords": [
+"quên cà vẹt xe",
+"không mang đăng ký xe máy",
+"thiếu giấy đăng ký"
+],
+"fine": {
+"min": "200.000 đồng",
+"max": "300.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển xe máy không mang theo giấy đăng ký xe theo quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 14",
+"clause": "Khoản 2",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "KHONG_MANG_GPLX_XEMAY",
+"type": "violation",
+"title": "Xe máy không mang bằng lái",
+"vehicle": "Xe máy",
+"keywords": [
+"quên bằng lái xe máy",
+"không mang GPLX",
+"thiếu bằng lái"
+],
+"fine": {
+"min": "200.000 đồng",
+"max": "300.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển xe máy không mang theo Giấy phép lái xe khi tham gia giao thông.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 14",
+"clause": "Khoản 2",
+"point": "Điểm b"
+}
+},
+
+{
+"id": "KHONG_MANG_GPLX_OTO",
+"type": "violation",
+"title": "Ô tô không mang bằng lái",
+"vehicle": "Ô tô",
+"keywords": [
+"quên bằng lái ô tô",
+"không mang GPLX ô tô",
+"thiếu bằng lái xe hơi"
+],
+"fine": {
+"min": "300.000 đồng",
+"max": "400.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển ô tô không mang theo Giấy phép lái xe khi lưu thông.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 13",
+"clause": "Khoản 3",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "CHE_BIENSO_XEMAY",
+"type": "violation",
+"title": "Xe máy che biển số",
+"vehicle": "Xe máy",
+"keywords": [
+"che biển số xe máy",
+"bẻ biển số",
+"dán biển số"
+],
+"fine": {
+"min": "4.000.000 đồng",
+"max": "6.000.000 đồng"
+},
+"additional_penalty": [
+"Tước GPLX",
+"Trừ điểm GPLX"
+],
+"content": "Che lấp, sửa chữa hoặc làm thay đổi chữ số, màu sắc của biển số xe máy.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 5",
+"point": "Điểm c"
+}
+},
+
+{
+"id": "CHE_BIENSO_OTO",
+"type": "violation",
+"title": "Ô tô che biển số",
+"vehicle": "Ô tô",
+"keywords": [
+"ô tô che biển số",
+"xe hơi che biển",
+"làm mờ biển số"
+],
+"fine": {
+"min": "20.000.000 đồng",
+"max": "26.000.000 đồng"
+},
+"additional_penalty": [
+"Tước GPLX",
+"Trừ điểm GPLX"
+],
+"content": "Che lấp hoặc làm thay đổi nội dung biển số ô tô trái quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 9",
+"point": "Điểm d"
+}
+},
+{
+"id": "LANG_LACH_XEMAY",
+"type": "violation",
+"title": "Xe máy lạng lách đánh võng",
+"vehicle": "Xe máy",
+"keywords": [
+"lạng lách xe máy",
+"đánh võng",
+"bốc đầu xe máy"
+],
+"fine": {
+"min": "8.000.000 đồng",
+"max": "10.000.000 đồng"
+},
+"additional_penalty": [
+"Tước GPLX",
+"Tạm giữ phương tiện"
+],
+"content": "Điều khiển xe máy lạng lách, đánh võng, chạy bằng một bánh đối với xe hai bánh.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 9",
+"point": "Điểm a"
+}
+},
+
+{
+"id": "THATDAYANTOAN_OTO",
+"type": "violation",
+"title": "Ô tô không thắt dây an toàn",
+"vehicle": "Ô tô",
+"keywords": [
+"không thắt dây an toàn",
+"quên dây an toàn",
+"xe hơi không cài dây"
+],
+"fine": {
+"min": "800.000 đồng",
+"max": "1.000.000 đồng"
+},
+"additional_penalty": [],
+"content": "Người điều khiển hoặc người ngồi trên ô tô không thắt dây an toàn khi xe đang chạy.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 6",
+"clause": "Khoản 3",
+"point": "Điểm p"
+}
+},
+
+{
+"id": "LEN_VIAHE_XEMAY",
+"type": "violation",
+"title": "Xe máy đi lên vỉa hè",
+"vehicle": "Xe máy",
+"keywords": [
+"xe máy đi lên vỉa hè",
+"chạy trên lề đường",
+"xe máy leo vỉa hè"
+],
+"fine": {
+"min": "400.000 đồng",
+"max": "600.000 đồng"
+},
+"additional_penalty": [],
+"content": "Điều khiển xe máy đi trên hè phố trái quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 3",
+"point": "Điểm đ"
+}
+},
+
+{
+"id": "KHONG_BAT_DEN_XEMAY",
+"type": "violation",
+"title": "Xe máy không bật đèn ban đêm",
+"vehicle": "Xe máy",
+"keywords": [
+"không bật đèn xe máy",
+"xe máy không mở đèn",
+"đi tối không bật đèn"
+],
+"fine": {
+"min": "200.000 đồng",
+"max": "300.000 đồng"
+},
+"additional_penalty": [],
+"content": "Điều khiển xe máy không sử dụng đèn chiếu sáng trong thời gian quy định.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 7",
+"clause": "Khoản 2",
+"point": "Điểm g"
+}
+},
+
+{
+"id": "KHONG_NHUONG_XEUU_TIEN",
+"type": "violation",
+"title": "Không nhường đường cho xe ưu tiên",
+"vehicle": "Tất cả phương tiện",
+"keywords": [
+"không nhường xe cứu thương",
+"không nhường xe ưu tiên",
+"cản xe cứu hỏa"
+],
+"fine": {
+"min": "6.000.000 đồng",
+"max": "8.000.000 đồng"
+},
+"additional_penalty": [
+"Trừ điểm GPLX",
+"Có thể tước GPLX"
+],
+"content": "Không nhường đường hoặc gây cản trở xe được quyền ưu tiên đang phát tín hiệu ưu tiên.",
+"law_reference": "Nghị định mới về xử phạt giao thông đường bộ",
+"legal_basis": {
+"article": "Điều 5",
+"clause": "Khoản 6",
+"point": "Điểm c"
+}
+}
+]
