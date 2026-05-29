@@ -285,7 +285,7 @@ div[data-testid="stAudioInput"] {
     overflow: hidden !important;
     z-index: 1002 !important;
     background: transparent !important;
-    border-radius: 50% !important;
+    
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
