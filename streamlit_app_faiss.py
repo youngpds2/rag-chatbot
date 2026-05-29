@@ -258,7 +258,7 @@ section[data-testid="stSidebar"] {
 .stChatInput input {
     background-color: #111827 !important;
     color: white !important;
-    border-radius: 14px !important;
+    border-radius: 10px !important;
     border: 1px solid #334155 !important;
 }
 ::-webkit-scrollbar { width: 8px; }
