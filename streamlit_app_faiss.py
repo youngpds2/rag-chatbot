@@ -274,20 +274,30 @@ div[data-testid="stBottom"] {
     border-top: 1px solid #1f2937 !important;
     padding: 10px 1.5rem 14px 1.5rem !important;
     width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
 }
 
+/* Chat input chiếm hết chiều rộng */
+div[data-testid="stBottom"] > div:has([data-testid="stChatInput"]) {
+    flex: 1 !important;
+}
+
+/* Mic nằm bên phải chat input, không float */
 div[data-testid="stAudioInput"] {
-    position: fixed !important;
-    bottom: 78px !important;
-    right: 80px !important;
-    width: 40px !important;
-    height: 40px !important;
+    position: relative !important;
+    bottom: unset !important;
+    right: unset !important;
+    width: 44px !important;
+    height: 44px !important;
     overflow: hidden !important;
     z-index: 1002 !important;
-    background: #0b1120 !important;
+    background: transparent !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    flex-shrink: 0 !important;
 }
 div[data-testid="stAudioInput"] > label { display: none !important; }
 div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 40px !important; }
@@ -354,8 +364,8 @@ if st.session_state.current_thread_id in st.session_state.threads:
 # VOICE INPUT
 # =========================
 
-audio_input = st.audio_input(" ", label_visibility="collapsed", key="mic_hidden")
 typed_question = st.chat_input("Hỏi về mức phạt, biển báo...")
+audio_input = st.audio_input(" ", label_visibility="collapsed", key="mic_hidden")
 
 voice_question = ""
 if audio_input is not None:
