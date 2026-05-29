@@ -321,7 +321,7 @@ div[data-testid="stChatInputContainer"] > div {
 }
 
 textarea[data-testid="stChatInputTextArea"] {
-    padding-right: 0px !important;
+    padding-right: 50px !important;
 }
 </style>
 """, unsafe_allow_html=True)
