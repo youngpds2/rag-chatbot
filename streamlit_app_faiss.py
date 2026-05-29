@@ -279,7 +279,7 @@ div[data-testid="stBottom"] {
 div[data-testid="stAudioInput"] {
     position: fixed !important;
     bottom: 70px !important;
-    right: 50px !important;
+    right: 45px !important;
     width: 50px !important;
     height: 48px !important;
     overflow: hidden !important;
