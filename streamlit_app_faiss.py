@@ -312,7 +312,7 @@ div[data-testid="stAudioInput"] button:hover {
 }
 
 div[data-testid="stChatInputContainer"] {
-    padding-right: 0 !important;
+    padding-right: 40px !important;
 }
 </style>
 """, unsafe_allow_html=True)
