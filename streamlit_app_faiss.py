@@ -272,7 +272,7 @@ div[data-testid="stBottom"] {
     z-index: 999 !important;
     background-color: #0b1120 !important;
     border-top: 1px solid #1f2937 !important;
-    padding: 10px 1.5rem 14px 1.5rem !important;
+    padding: 10px 0.5rem 14px 0.5rem !important;
     width: 100% !important;
 }
 
