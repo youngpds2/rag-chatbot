@@ -317,7 +317,7 @@ div[data-testid="stChatInputContainer"] {
 }
 
 div[data-testid="stChatInputContainer"] > div {
-    padding-right: 0px !important;
+    padding-right: 50px !important;
 }
 
 textarea[data-testid="stChatInputTextArea"] {
