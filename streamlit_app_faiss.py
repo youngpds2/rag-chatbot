@@ -281,7 +281,7 @@ div[data-testid="stAudioInput"] {
     bottom: 78px !important;
     right: 68px !important;
     width: 48px !important;
-    height: 48px !important;
+    height: 53px !important;
     overflow: hidden !important;
     z-index: 1002 !important;
     background: #2b313e !important;
