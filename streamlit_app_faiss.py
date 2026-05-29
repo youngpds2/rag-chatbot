@@ -310,6 +310,10 @@ div[data-testid="stAudioInput"] button:hover {
     background: #2b313e  !important;
     color: white !important;
 }
+
+div[data-testid="stChatInputContainer"] {
+    padding-right: 0 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
