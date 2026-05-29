@@ -293,7 +293,7 @@ div[data-testid="stAudioInput"] {
 div[data-testid="stAudioInput"] > label { display: none !important; }
 div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 38px !important; }
 div[data-testid="stAudioInput"] button {
-    width: 40px !important;
+    width: 50px !important;
     height: 38px !important;
     border-radius: 8px !important;
     background: #2b313e !important;
