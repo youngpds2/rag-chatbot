@@ -278,7 +278,7 @@ div[data-testid="stBottom"] {
 
 div[data-testid="stAudioInput"] {
     position: fixed !important;
-    bottom: 22px !important;
+    bottom: 78px !important;
     right: 68px !important;
     width: 38px !important;
     height: 38px !important;
