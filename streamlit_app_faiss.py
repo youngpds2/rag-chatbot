@@ -295,7 +295,7 @@ div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 38p
 div[data-testid="stAudioInput"] button {
     width: 50px !important;
     height: 48px !important;
-    right: 40px !important;
+    right: 20px !important;
     border-radius: 8px !important;
     background: #2b313e !important;
     border: none !important;
