@@ -274,41 +274,32 @@ div[data-testid="stBottom"] {
     border-top: 1px solid #1f2937 !important;
     padding: 10px 1.5rem 14px 1.5rem !important;
     width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
 }
 
-/* Chat input chiếm hết chiều rộng */
-div[data-testid="stBottom"] > div:has([data-testid="stChatInput"]) {
-    flex: 1 !important;
-}
-
-/* Mic nằm bên phải chat input, không float */
 div[data-testid="stAudioInput"] {
-    position: relative !important;
-    bottom: unset !important;
-    right: unset !important;
-    width: 44px !important;
-    height: 44px !important;
+    position: fixed !important;
+    bottom: 22px !important;
+    right: 68px !important;
+    width: 38px !important;
+    height: 38px !important;
     overflow: hidden !important;
     z-index: 1002 !important;
-    background: transparent !important;
+    background: #2b313e !important;
+    border-radius: 8px !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    flex-shrink: 0 !important;
 }
 div[data-testid="stAudioInput"] > label { display: none !important; }
-div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 40px !important; }
+div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 38px !important; }
 div[data-testid="stAudioInput"] button {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 50% !important;
-    background: #0b1120 !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 8px !important;
+    background: #2b313e !important;
     border: none !important;
-    color: #94a3b8 !important;
-    font-size: 17px !important;
+    color: white !important;
+    font-size: 16px !important;
     padding: 0 !important;
     cursor: pointer !important;
     transition: all 0.15s !important;
@@ -316,9 +307,8 @@ div[data-testid="stAudioInput"] button {
     z-index: 1003 !important;
 }
 div[data-testid="stAudioInput"] button:hover {
-    border-color: #3b82f6 !important;
-    color: #3b82f6 !important;
-    background: #1e3a5f !important;
+    background: #3b4253 !important;
+    color: white !important;
 }
 </style>
 """, unsafe_allow_html=True)
