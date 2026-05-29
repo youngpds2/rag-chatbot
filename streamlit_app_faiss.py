@@ -296,7 +296,7 @@ div[data-testid="stAudioInput"] button {
     width: 50px !important;
     height: 48px !important;
     border-radius: 8px !important;
-    background: #111827 !important;
+    background: #2b313e !important;
     border: none !important;
     color: white !important;
     font-size: 16px !important;
