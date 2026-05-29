@@ -307,7 +307,7 @@ div[data-testid="stAudioInput"] button {
     z-index: 1003 !important;
 }
 div[data-testid="stAudioInput"] button:hover {
-    background: #3b4253 !important;
+    background: #2b313e  !important;
     color: white !important;
 }
 </style>
