@@ -37,6 +37,8 @@ if "last_audio_id" not in st.session_state:
     st.session_state.last_audio_id = None
 if "suggested_question" not in st.session_state:
     st.session_state.suggested_question = None
+if "suggestions" not in st.session_state:
+    st.session_state.suggestions = []
 
 # =========================
 # HÀM BỔ TRỢ
@@ -257,25 +259,6 @@ section[data-testid="stSidebar"] {
     background: #334155;
     color: white;
 }
-
-/* Nút gợi ý */
-div[data-testid="stHorizontalBlock"] .stButton button {
-    background: #0f172a !important;
-    border: 1px solid #334155 !important;
-    border-radius: 20px !important;
-    color: #94a3b8 !important;
-    font-size: 12px !important;
-    padding: 6px 12px !important;
-    white-space: normal !important;
-    height: auto !important;
-    text-align: left !important;
-    transition: all 0.15s !important;
-}
-div[data-testid="stHorizontalBlock"] .stButton button:hover {
-    background: #1e293b !important;
-    border-color: #3b82f6 !important;
-    color: #3b82f6 !important;
-}
 .stChatInput input {
     background-color: #111827 !important;
     color: white !important;
@@ -412,12 +395,31 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if st.session_state.current_thread_id in st.session_state.threads:
-    for msg in st.session_state.threads[st.session_state.current_thread_id]["messages"]:
+    msgs = st.session_state.threads[st.session_state.current_thread_id]["messages"]
+    for i, msg in enumerate(msgs):
         role_class = "chat-user" if msg["role"] == "user" else "chat-bot"
+        # Cắt phần gợi ý khỏi nội dung hiển thị
+        display_content = msg["content"]
+        if msg["role"] == "assistant":
+            for marker in ["Bạn có muốn biết thêm:", "Bạn có muốn biết thêm :", "bạn có muốn biết thêm:"]:
+                if marker.lower() in display_content.lower():
+                    idx = display_content.lower().find(marker.lower())
+                    display_content = display_content[:idx].strip()
+                    break
         st.markdown(
-            f'<div class="{role_class}">{msg["content"].replace(chr(10), "<br>")}</div>',
+            f'<div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>',
             unsafe_allow_html=True
         )
+    # Hiện nút gợi ý sau tin nhắn cuối
+    if st.session_state.suggestions:
+        st.markdown("<div style='margin-top:6px; color:#94a3b8; font-size:12px;'>💡 Bạn muốn biết thêm:</div>", unsafe_allow_html=True)
+        cols = st.columns(len(st.session_state.suggestions))
+        for i, sug in enumerate(st.session_state.suggestions):
+            with cols[i]:
+                if st.button(sug, key=f"sug_{i}", use_container_width=True):
+                    st.session_state.suggested_question = sug
+                    st.session_state.suggestions = []
+                    st.rerun()
 
 # =========================
 # VOICE INPUT
@@ -439,7 +441,6 @@ if audio_input is not None:
             except Exception as e:
                 st.error(f"❌ Lỗi Whisper: {e}")
 
-# Ưu tiên: suggested > voice > typed
 if st.session_state.suggested_question:
     user_question = st.session_state.suggested_question
     st.session_state.suggested_question = None
@@ -568,10 +569,23 @@ DỮ LIỆU:
             )
             answer = completion.choices[0].message.content
 
-    # Hiển thị streaming
+    # Parse gợi ý và cắt khỏi answer hiển thị
+    suggestions = []
+    display_answer = answer
+    for marker in ["Bạn có muốn biết thêm:", "Bạn có muốn biết thêm :", "bạn có muốn biết thêm:"]:
+        if marker.lower() in answer.lower():
+            idx = answer.lower().find(marker.lower())
+            display_answer = answer[:idx].strip()
+            for line in answer[idx:].split("\n"):
+                line = line.strip().lstrip("-").strip()
+                if line and marker.lower() not in line.lower() and len(line) > 5:
+                    suggestions.append(line)
+            break
+
+    # Hiển thị streaming (không có phần gợi ý)
     resp_placeholder = st.empty()
     full_resp = ""
-    for char in answer:
+    for char in display_answer:
         full_resp += char
         resp_placeholder.markdown(
             f'<div class="chat-bot">{full_resp.replace(chr(10), "<br>")}</div>',
@@ -579,31 +593,10 @@ DỮ LIỆU:
         )
         time.sleep(0.01)
 
-    # Parse gợi ý từ câu trả lời
-    suggestions = []
-    lines = answer.split("\n")
-    in_suggest = False
-    for line in lines:
-        line = line.strip()
-        if "muốn biết thêm" in line.lower() or "bạn có muốn" in line.lower():
-            in_suggest = True
-            continue
-        if in_suggest and line.startswith("-"):
-            tip = line.lstrip("-").strip()
-            if tip:
-                suggestions.append(tip)
+    # Lưu suggestions vào session_state để hiện sau rerun
+    st.session_state.suggestions = suggestions[:3]
 
-    # Hiển thị nút gợi ý
-    if suggestions:
-        st.markdown("<div style='margin-top:8px; margin-bottom:4px; color:#94a3b8; font-size:13px;'>💡 Bạn muốn biết thêm:</div>", unsafe_allow_html=True)
-        cols = st.columns(len(suggestions))
-        for i, sug in enumerate(suggestions[:3]):
-            with cols[i]:
-                if st.button(sug, key=f"sug_{hash(sug)}_{len(st.session_state.threads[st.session_state.current_thread_id]['messages'])}", use_container_width=True):
-                    st.session_state.suggested_question = sug
-                    st.rerun()
-
-    # Lưu lịch sử
+    # Lưu lịch sử (lưu answer gốc để GPT có context đầy đủ)
     st.session_state.threads[st.session_state.current_thread_id]["messages"].append(
         {"role": "user", "content": user_question}
     )
@@ -613,4 +606,4 @@ DỮ LIỆU:
 
     if len(st.session_state.threads[st.session_state.current_thread_id]["messages"]) <= 2:
         st.session_state.threads[st.session_state.current_thread_id]["title"] = generate_chat_title(user_question)
-        st.rerun()
+    st.rerun()
