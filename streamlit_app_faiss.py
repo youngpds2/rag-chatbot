@@ -326,47 +326,27 @@ textarea[data-testid="stChatInputTextArea"] {
 
 /* ===== RESPONSIVE ===== */
 
-/* Desktop - giữ nguyên kích thước lớn */
-@media (min-width: 769px) {
-    .main-title { font-size: 42px !important; }
-    .sub-title { font-size: 16px !important; }
-    .chat-user { max-width: 75% !important; font-size: 15px !important; }
-    .chat-bot { font-size: 15px !important; }
+/* Desktop base styles - đảm bảo kích thước đúng */
+.main-title { font-size: 42px !important; }
+.sub-title { font-size: 16px !important; }
+.chat-user { max-width: 75% !important; font-size: 15px !important; }
+.chat-bot { font-size: 15px !important; }
+
+section[data-testid="stSidebar"] {
+    min-width: 240px !important;
+    max-width: 260px !important;
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 24px !important;
-        margin-bottom: 2px !important;
-    }
-    .sub-title {
-        font-size: 13px !important;
-        margin-bottom: 12px !important;
-    }
-    .chat-user {
-        max-width: 92% !important;
-        font-size: 13px !important;
-        padding: 10px 12px !important;
-    }
-    .chat-bot {
-        font-size: 13px !important;
-        padding: 10px 12px !important;
-    }
-    .main .block-container {
-        padding: 0.5rem 0.5rem 100px 0.5rem !important;
-    }
-    section[data-testid="stSidebar"] {
-        min-width: 180px !important;
-        max-width: 200px !important;
-    }
-    div[data-testid="stBottom"] {
-        padding: 8px 0.5rem 12px 0.5rem !important;
-    }
-    div[data-testid="stAudioInput"] {
-        bottom: 58px !important;
-        right: 10px !important;
-    }
+@media screen and (max-width: 768px) {
+    .main-title { font-size: 24px !important; margin-bottom: 2px !important; }
+    .sub-title { font-size: 13px !important; margin-bottom: 12px !important; }
+    .chat-user { max-width: 92% !important; font-size: 13px !important; padding: 10px 12px !important; }
+    .chat-bot { font-size: 13px !important; padding: 10px 12px !important; }
+    .main .block-container { padding: 0.5rem 0.5rem 100px 0.5rem !important; }
+    section[data-testid="stSidebar"] { min-width: 160px !important; max-width: 180px !important; }
+    div[data-testid="stBottom"] { padding: 8px 0.5rem 12px 0.5rem !important; }
+    div[data-testid="stAudioInput"] { bottom: 58px !important; right: 10px !important; }
 }
 </style>
 """, unsafe_allow_html=True)
