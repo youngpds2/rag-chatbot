@@ -346,11 +346,6 @@ textarea[data-testid="stChatInputTextArea"] {
 .chat-user { max-width: 75% !important; font-size: 15px !important; }
 .chat-bot { font-size: 15px !important; }
  
-section[data-testid="stSidebar"] {
-    min-width: 240px !important;
-    max-width: 260px !important;
-}
- 
 /* Mobile */
 @media screen and (max-width: 768px) {
     .main-title { font-size: 24px !important; margin-bottom: 2px !important; }
