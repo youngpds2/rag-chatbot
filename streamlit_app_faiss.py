@@ -239,11 +239,41 @@ html, body, [class*="css"] {
     background: #1e293b;
     padding: 14px;
     border-radius: 16px;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     color: white;
     line-height: 1.7;
     font-size: 15px;
     border-left: 4px solid #22c55e;
+    position: relative;
+}
+.chat-bot-wrapper {
+    position: relative;
+    margin-bottom: 12px;
+}
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #334155;
+    border: none;
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 4px 8px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+.chat-bot-wrapper:hover .copy-btn {
+    opacity: 1;
+}
+.copy-btn:hover {
+    background: #475569;
+    color: white;
+}
+.copy-btn.copied {
+    color: #22c55e;
 }
 section[data-testid="stSidebar"] {
     background-color: #111827;
@@ -410,10 +440,20 @@ if st.session_state.current_thread_id in st.session_state.threads:
                     idx = display_content.lower().find(marker.lower())
                     display_content = display_content[:idx].strip()
                     break
-        st.markdown(
-            f'<div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>',
-            unsafe_allow_html=True
-        )
+        if msg["role"] == "assistant":
+            clean_text = display_content.replace("'", "\'").replace("\n", " ")
+            st.markdown(
+                f'''<div class="chat-bot-wrapper">
+  <div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>
+  <button class="copy-btn" onclick="navigator.clipboard.writeText('{clean_text}').then(()=>{{this.textContent='✓ Đã copy';this.classList.add('copied');setTimeout(()=>{{this.textContent='📋 Copy';this.classList.remove('copied')}},2000)}})">📋 Copy</button>
+</div>''',
+                unsafe_allow_html=True
+            )
+        else:
+            st.markdown(
+                f'<div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>',
+                unsafe_allow_html=True
+            )
     # Hiện nút gợi ý sau tin nhắn cuối
     if st.session_state.suggestions:
         st.markdown("<div style='margin-top:6px; color:#94a3b8; font-size:12px;'>💡 Bạn muốn biết thêm:</div>", unsafe_allow_html=True)
@@ -596,6 +636,16 @@ DỮ LIỆU:
             unsafe_allow_html=True
         )
         time.sleep(0.01)
+
+    # Scroll to bottom
+    st.markdown("""
+<script>
+window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrollTo(
+    0,
+    window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrollHeight
+);
+</script>
+""", unsafe_allow_html=True)
 
     # Lưu suggestions vào session_state để hiện sau rerun
     st.session_state.suggestions = suggestions[:3]
