@@ -259,6 +259,15 @@ section[data-testid="stSidebar"] {
     background: #334155;
     color: white;
 }
+
+/* Nút X xóa đoạn chat */
+section[data-testid="stSidebar"] .stButton button {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
 .stChatInput input {
     background-color: #111827 !important;
     color: white !important;
