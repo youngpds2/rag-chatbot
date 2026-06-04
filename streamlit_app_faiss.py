@@ -35,6 +35,8 @@ if "current_thread_id" not in st.session_state:
     st.session_state.current_thread_id = None
 if "last_audio_id" not in st.session_state:
     st.session_state.last_audio_id = None
+if "suggested_question" not in st.session_state:
+    st.session_state.suggested_question = None
 
 # =========================
 # HÀM BỔ TRỢ
@@ -255,6 +257,25 @@ section[data-testid="stSidebar"] {
     background: #334155;
     color: white;
 }
+
+/* Nút gợi ý */
+div[data-testid="stHorizontalBlock"] .stButton button {
+    background: #0f172a !important;
+    border: 1px solid #334155 !important;
+    border-radius: 20px !important;
+    color: #94a3b8 !important;
+    font-size: 12px !important;
+    padding: 6px 12px !important;
+    white-space: normal !important;
+    height: auto !important;
+    text-align: left !important;
+    transition: all 0.15s !important;
+}
+div[data-testid="stHorizontalBlock"] .stButton button:hover {
+    background: #1e293b !important;
+    border-color: #3b82f6 !important;
+    color: #3b82f6 !important;
+}
 .stChatInput input {
     background-color: #111827 !important;
     color: white !important;
@@ -418,7 +439,12 @@ if audio_input is not None:
             except Exception as e:
                 st.error(f"❌ Lỗi Whisper: {e}")
 
-user_question = voice_question if voice_question else typed_question
+# Ưu tiên: suggested > voice > typed
+if st.session_state.suggested_question:
+    user_question = st.session_state.suggested_question
+    st.session_state.suggested_question = None
+else:
+    user_question = voice_question if voice_question else typed_question
 
 # =========================
 # XỬ LÝ CÂU HỎI
@@ -552,6 +578,30 @@ DỮ LIỆU:
             unsafe_allow_html=True
         )
         time.sleep(0.01)
+
+    # Parse gợi ý từ câu trả lời
+    suggestions = []
+    lines = answer.split("\n")
+    in_suggest = False
+    for line in lines:
+        line = line.strip()
+        if "muốn biết thêm" in line.lower() or "bạn có muốn" in line.lower():
+            in_suggest = True
+            continue
+        if in_suggest and line.startswith("-"):
+            tip = line.lstrip("-").strip()
+            if tip:
+                suggestions.append(tip)
+
+    # Hiển thị nút gợi ý
+    if suggestions:
+        st.markdown("<div style='margin-top:8px; margin-bottom:4px; color:#94a3b8; font-size:13px;'>💡 Bạn muốn biết thêm:</div>", unsafe_allow_html=True)
+        cols = st.columns(len(suggestions))
+        for i, sug in enumerate(suggestions[:3]):
+            with cols[i]:
+                if st.button(sug, key=f"sug_{hash(sug)}_{len(st.session_state.threads[st.session_state.current_thread_id]['messages'])}", use_container_width=True):
+                    st.session_state.suggested_question = sug
+                    st.rerun()
 
     # Lưu lịch sử
     st.session_state.threads[st.session_state.current_thread_id]["messages"].append(
