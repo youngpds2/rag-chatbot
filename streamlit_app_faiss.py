@@ -441,11 +441,22 @@ if st.session_state.current_thread_id in st.session_state.threads:
                     display_content = display_content[:idx].strip()
                     break
         if msg["role"] == "assistant":
-            clean_text = display_content.replace("'", "\'").replace("\n", " ")
+            import html as html_lib
+            safe_text = html_lib.escape(display_content).replace("'", "&#39;")
+            msg_id = f"msg_{i}"
             st.markdown(
                 f'''<div class="chat-bot-wrapper">
-  <div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>
-  <button class="copy-btn" onclick="navigator.clipboard.writeText('{clean_text}').then(()=>{{this.textContent='✓ Đã copy';this.classList.add('copied');setTimeout(()=>{{this.textContent='📋 Copy';this.classList.remove('copied')}},2000)}})">📋 Copy</button>
+  <div class="{role_class}" id="{msg_id}">{display_content.replace(chr(10), "<br>")}</div>
+  <button class="copy-btn" onclick="(function(btn){{
+    var ta=document.createElement('textarea');
+    ta.value=document.getElementById('{msg_id}').innerText;
+    ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{{document.execCommand('copy');btn.textContent='✓ Đã copy';btn.classList.add('copied');
+    setTimeout(function(){{btn.textContent='📋 Copy';btn.classList.remove('copied')}},2000);}}
+    catch(e){{btn.textContent='❌ Lỗi';}}
+    document.body.removeChild(ta);
+  }})(this)">📋 Copy</button>
 </div>''',
                 unsafe_allow_html=True
             )
