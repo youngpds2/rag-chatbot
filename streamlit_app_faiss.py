@@ -346,7 +346,7 @@ section[data-testid="stSidebar"] {
     .chat-bot { font-size: 13px !important; padding: 10px 12px !important; }
     .main .block-container { padding: 0.5rem 0.5rem 100px 0.5rem !important; }
     section[data-testid="stSidebar"] { min-width: 160px !important; max-width: 180px !important; }
-    div[data-testid="stBottom"] { padding: 8px 3.5rem 12px 0.5rem !important; }
+    div[data-testid="stBottom"] { padding: 8px 3rem 12px 0.5rem !important; }
     div[data-testid="stAudioInput"] { 
         bottom: 72px !important; 
         right: 10px !important;
