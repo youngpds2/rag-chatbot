@@ -326,18 +326,18 @@ textarea[data-testid="stChatInputTextArea"] {
 }
 
 /* ===== RESPONSIVE ===== */
-
+ 
 /* Desktop base styles - đảm bảo kích thước đúng */
 .main-title { font-size: 42px !important; }
 .sub-title { font-size: 16px !important; }
 .chat-user { max-width: 75% !important; font-size: 15px !important; }
 .chat-bot { font-size: 15px !important; }
-
+ 
 section[data-testid="stSidebar"] {
     min-width: 240px !important;
     max-width: 260px !important;
 }
-
+ 
 /* Mobile */
 @media screen and (max-width: 768px) {
     .main-title { font-size: 24px !important; margin-bottom: 2px !important; }
@@ -347,7 +347,16 @@ section[data-testid="stSidebar"] {
     .main .block-container { padding: 0.5rem 0.5rem 100px 0.5rem !important; }
     section[data-testid="stSidebar"] { min-width: 160px !important; max-width: 180px !important; }
     div[data-testid="stBottom"] { padding: 8px 0.5rem 12px 0.5rem !important; }
-    div[data-testid="stAudioInput"] { bottom: 58px !important; right: 10px !important; }
+    div[data-testid="stAudioInput"] { 
+        bottom: 72px !important; 
+        right: 70px !important;
+        width: 44px !important;
+        height: 44px !important;
+    }
+    div[data-testid="stAudioInput"] button {
+        width: 44px !important;
+        height: 44px !important;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
