@@ -441,25 +441,24 @@ if st.session_state.current_thread_id in st.session_state.threads:
                     display_content = display_content[:idx].strip()
                     break
         if msg["role"] == "assistant":
-            import html as html_lib
-            safe_text = html_lib.escape(display_content).replace("'", "&#39;")
-            msg_id = f"msg_{i}"
             st.markdown(
-                f'''<div class="chat-bot-wrapper">
-  <div class="{role_class}" id="{msg_id}">{display_content.replace(chr(10), "<br>")}</div>
-  <button class="copy-btn" onclick="(function(btn){{
-    var ta=document.createElement('textarea');
-    ta.value=document.getElementById('{msg_id}').innerText;
-    ta.style.position='fixed';ta.style.opacity='0';
-    document.body.appendChild(ta);ta.select();
-    try{{document.execCommand('copy');btn.textContent='✓ Đã copy';btn.classList.add('copied');
-    setTimeout(function(){{btn.textContent='📋 Copy';btn.classList.remove('copied')}},2000);}}
-    catch(e){{btn.textContent='❌ Lỗi';}}
-    document.body.removeChild(ta);
-  }})(this)">📋 Copy</button>
-</div>''',
+                f'<div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>',
                 unsafe_allow_html=True
             )
+            # Nút copy dùng st.components để có quyền clipboard
+            import streamlit.components.v1 as components
+            escaped = display_content.replace("`", "'").replace("\\", "\\\\").replace("\n", "\\n")
+            components.html(f"""
+<button onclick="navigator.clipboard.writeText(`{escaped}`).then(()=>{{
+    this.innerHTML='✓ Đã copy';
+    this.style.color='#22c55e';
+    setTimeout(()=>{{this.innerHTML='📋 Copy';this.style.color='#94a3b8'}},2000)
+}})" style="
+    background:#1e293b;border:1px solid #334155;border-radius:6px;
+    color:#94a3b8;font-size:12px;padding:4px 10px;cursor:pointer;
+    font-family:Inter,sans-serif;margin-bottom:8px;
+">📋 Copy</button>
+""", height=36)
         else:
             st.markdown(
                 f'<div class="{role_class}">{display_content.replace(chr(10), "<br>")}</div>',
