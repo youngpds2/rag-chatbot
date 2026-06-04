@@ -279,8 +279,8 @@ div[data-testid="stBottom"] {
 div[data-testid="stAudioInput"] {
     position: fixed !important;
     bottom: 70px !important;
-    right: 40px !important;
-    width: 50px !important;
+    right: 68px !important;
+    width: 53px !important;
     height: 48px !important;
     overflow: hidden !important;
     z-index: 1002 !important;
@@ -293,9 +293,8 @@ div[data-testid="stAudioInput"] {
 div[data-testid="stAudioInput"] > label { display: none !important; }
 div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 38px !important; }
 div[data-testid="stAudioInput"] button {
-    width: 50px !important;
-    height: 48px !important;
-    right: 13px !important;
+    width: 38px !important;
+    height: 38px !important;
     border-radius: 8px !important;
     background: #2b313e !important;
     border: none !important;
@@ -313,16 +312,72 @@ div[data-testid="stAudioInput"] button:hover {
 }
 
 div[data-testid="stChatInputContainer"] {
-    padding-right: 50px !important;
+    padding-right: 0px !important;
     margin-right: 0px !important;
 }
 
 div[data-testid="stChatInputContainer"] > div {
-    padding-right: 50px !important;
+    padding-right: 0px !important;
 }
 
 textarea[data-testid="stChatInputTextArea"] {
-    padding-right: 50px !important;
+    padding-right: 0px !important;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+
+@media (max-width: 768px) {
+    /* Title nhỏ lại */
+    .main-title {
+        font-size: 26px !important;
+        margin-bottom: 2px !important;
+    }
+    .sub-title {
+        font-size: 13px !important;
+        margin-bottom: 16px !important;
+    }
+
+    /* Chat bubble full width hơn */
+    .chat-user {
+        max-width: 92% !important;
+        font-size: 14px !important;
+        padding: 10px 14px !important;
+    }
+    .chat-bot {
+        font-size: 14px !important;
+        padding: 10px 12px !important;
+    }
+
+    /* Block container padding nhỏ hơn */
+    .main .block-container {
+        padding: 0.5rem 0.75rem 100px 0.75rem !important;
+    }
+
+    /* Sidebar thu nhỏ */
+    section[data-testid="stSidebar"] {
+        min-width: 200px !important;
+        max-width: 220px !important;
+    }
+
+    /* Bottom bar full width */
+    div[data-testid="stBottom"] {
+        padding: 8px 0.75rem 12px 0.75rem !important;
+    }
+
+    /* Mic button vị trí mobile */
+    div[data-testid="stAudioInput"] {
+        bottom: 60px !important;
+        right: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 22px !important;
+    }
+    .chat-user, .chat-bot {
+        font-size: 13px !important;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
