@@ -600,7 +600,10 @@ Phân biệt các trường hợp (nếu có):
 - [Tình huống B]: ...
 
 Căn cứ pháp lý:
-- Điểm ... Khoản ... Điều ... Nghị định ...
+- Điểm ... Khoản ... Điều ... [Tên đầy đủ Nghị định, ví dụ: Nghị định 168/2024/NĐ-CP]
+- Ghi rõ số nghị định, không viết tắt hay để trống.
+
+📌 Nguồn: [Tên Nghị định đầy đủ] — hiệu lực từ [ngày hiệu lực nếu biết]
 
 Bạn có muốn biết thêm:
 - [gợi ý 1]
