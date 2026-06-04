@@ -279,8 +279,8 @@ div[data-testid="stBottom"] {
 div[data-testid="stAudioInput"] {
     position: fixed !important;
     bottom: 70px !important;
-    right: 68px !important;
-    width: 53px !important;
+    right: 40px !important;
+    width: 50px !important;
     height: 48px !important;
     overflow: hidden !important;
     z-index: 1002 !important;
@@ -293,8 +293,8 @@ div[data-testid="stAudioInput"] {
 div[data-testid="stAudioInput"] > label { display: none !important; }
 div[data-testid="stAudioInput"] > div { overflow: hidden !important; height: 38px !important; }
 div[data-testid="stAudioInput"] button {
-    width: 38px !important;
-    height: 38px !important;
+    width: 50px !important;
+    height: 48px !important;
     border-radius: 8px !important;
     background: #2b313e !important;
     border: none !important;
