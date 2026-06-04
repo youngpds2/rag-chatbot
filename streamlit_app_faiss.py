@@ -349,7 +349,7 @@ section[data-testid="stSidebar"] {
     div[data-testid="stBottom"] { padding: 8px 0.5rem 12px 0.5rem !important; }
     div[data-testid="stAudioInput"] { 
         bottom: 72px !important; 
-        right: 40px !important;
+        right: 25px !important;
         width: 44px !important;
         height: 44px !important;
     }
