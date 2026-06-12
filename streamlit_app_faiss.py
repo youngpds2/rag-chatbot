@@ -7,21 +7,26 @@ import json
 import numpy as np
 from openai import OpenAI
 from sentence_transformers import SentenceTransformer
+from supabase import create_client, Client
 
 # =========================
 # KHỞI TẠO
 # =========================
 
-# Đọc API key: .env (local) hoặc st.secrets (Streamlit Cloud)
 from dotenv import load_dotenv
 load_dotenv()
 
 try:
     api_key = st.secrets["OPENAI_API_KEY"]
+    SUPABASE_URL = st.secrets["SUPABASE_URL"]
+    SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 except Exception:
     api_key = os.getenv("OPENAI_API_KEY", "")
+    SUPABASE_URL = os.getenv("SUPABASE_URL", "")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
 
 client = OpenAI(api_key=api_key)
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 st.set_page_config(
     page_title="Traffic Law RAG Chatbot",
@@ -29,6 +34,8 @@ st.set_page_config(
     layout="wide"
 )
 
+if "user" not in st.session_state:
+    st.session_state.user = None
 if "threads" not in st.session_state:
     st.session_state.threads = {}
 if "current_thread_id" not in st.session_state:
@@ -43,6 +50,68 @@ if "suggestions" not in st.session_state:
 # =========================
 # HÀM BỔ TRỢ
 # =========================
+
+# --- AUTH ---
+def login(email, password):
+    try:
+        res = supabase.auth.sign_in_with_password({"email": email, "password": password})
+        return res.user, None
+    except Exception as e:
+        return None, str(e)
+
+def register(email, password):
+    try:
+        res = supabase.auth.sign_up({"email": email, "password": password})
+        return res.user, None
+    except Exception as e:
+        return None, str(e)
+
+def logout():
+    supabase.auth.sign_out()
+    st.session_state.user = None
+    st.session_state.threads = {}
+    st.session_state.current_thread_id = None
+    st.rerun()
+
+# --- SUPABASE HISTORY ---
+def load_threads_from_db(user_id):
+    """Load toàn bộ conversations + messages của user từ Supabase."""
+    threads = {}
+    try:
+        convs = supabase.table("conversations").select("*").eq("user_id", user_id).order("created_at").execute()
+        for conv in convs.data:
+            msgs_res = supabase.table("messages").select("*").eq("conversation_id", conv["id"]).order("created_at").execute()
+            threads[conv["id"]] = {
+                "title": conv["title"],
+                "messages": [{"role": m["role"], "content": m["content"]} for m in msgs_res.data]
+            }
+    except Exception as e:
+        st.error(f"Lỗi load lịch sử: {e}")
+    return threads
+
+def save_new_thread(user_id, thread_id, title):
+    try:
+        supabase.table("conversations").insert({"id": thread_id, "user_id": user_id, "title": title}).execute()
+    except Exception as e:
+        pass
+
+def update_thread_title(thread_id, title):
+    try:
+        supabase.table("conversations").update({"title": title}).eq("id", thread_id).execute()
+    except Exception as e:
+        pass
+
+def save_message(thread_id, role, content):
+    try:
+        supabase.table("messages").insert({"conversation_id": thread_id, "role": role, "content": content}).execute()
+    except Exception as e:
+        pass
+
+def delete_thread_from_db(thread_id):
+    try:
+        supabase.table("conversations").delete().eq("id", thread_id).execute()
+    except Exception as e:
+        pass
 
 def generate_chat_title(question):
     try:
@@ -64,6 +133,7 @@ def confirm_delete_dialog(tid):
     st.info(f"**Tiêu đề:** {st.session_state.threads[tid]['title']}")
     col1, col2 = st.columns(2)
     if col1.button("Có, xóa ngay", type="primary", use_container_width=True):
+        delete_thread_from_db(tid)
         del st.session_state.threads[tid]
         if st.session_state.current_thread_id == tid:
             st.session_state.current_thread_id = None
@@ -201,6 +271,60 @@ def transcribe_audio(audio_bytes: bytes) -> str:
 # =========================
 # CSS
 # =========================
+
+# =========================
+# KIỂM TRA ĐĂNG NHẬP
+# =========================
+
+if st.session_state.user is None:
+    st.markdown("""
+    <style>
+    html, body, [class*="css"] { background-color: #0b1120; color: white; font-family: 'Inter', sans-serif; }
+    div[data-testid="stTabs"] button { color: white !important; }
+    </style>
+    """, unsafe_allow_html=True)
+
+    col1, col2, col3 = st.columns([1, 1.5, 1])
+    with col2:
+        st.markdown("<h2 style='text-align:center;margin-bottom:4px;'>🚦 Traffic Law AI</h2>", unsafe_allow_html=True)
+        st.markdown("<p style='text-align:center;color:#94a3b8;margin-bottom:24px;'>Đăng nhập để lưu lịch sử hội thoại</p>", unsafe_allow_html=True)
+
+        tab1, tab2 = st.tabs(["🔑 Đăng nhập", "📝 Đăng ký"])
+
+        with tab1:
+            email = st.text_input("Email", key="login_email", placeholder="you@example.com")
+            password = st.text_input("Mật khẩu", type="password", key="login_pass")
+            if st.button("Đăng nhập", use_container_width=True, type="primary", key="btn_login"):
+                if email and password:
+                    user, err = login(email, password)
+                    if user:
+                        st.session_state.user = user
+                        st.session_state.threads = load_threads_from_db(user.id)
+                        st.rerun()
+                    else:
+                        st.error(f"❌ Email hoặc mật khẩu không đúng")
+                else:
+                    st.warning("Vui lòng nhập đầy đủ thông tin")
+
+        with tab2:
+            reg_email = st.text_input("Email", key="reg_email", placeholder="you@example.com")
+            reg_pass = st.text_input("Mật khẩu", type="password", key="reg_pass", placeholder="Ít nhất 6 ký tự")
+            reg_pass2 = st.text_input("Nhập lại mật khẩu", type="password", key="reg_pass2")
+            if st.button("Đăng ký", use_container_width=True, type="primary", key="btn_reg"):
+                if reg_email and reg_pass and reg_pass2:
+                    if reg_pass != reg_pass2:
+                        st.error("❌ Mật khẩu không khớp")
+                    elif len(reg_pass) < 6:
+                        st.error("❌ Mật khẩu phải ít nhất 6 ký tự")
+                    else:
+                        user, err = register(reg_email, reg_pass)
+                        if user:
+                            st.success("✅ Đăng ký thành công! Vui lòng đăng nhập.")
+                        else:
+                            st.error(f"❌ {err}")
+                else:
+                    st.warning("Vui lòng nhập đầy đủ thông tin")
+    st.stop()
 
 st.markdown("""
 <style>
@@ -405,8 +529,12 @@ textarea[data-testid="stChatInputTextArea"] {
 
 with st.sidebar:
     st.title("📜 Lịch sử")
+    # Hiện email user
+    if st.session_state.user:
+        st.caption(f"👤 {st.session_state.user.email}")
     if st.button("+ Đoạn chat mới", use_container_width=True):
         st.session_state.current_thread_id = None
+        st.session_state.suggestions = []
         st.rerun()
     st.divider()
     for tid, tdata in list(st.session_state.threads.items()):
@@ -414,10 +542,14 @@ with st.sidebar:
         with cols[0]:
             if st.button(tdata['title'], key=f"select_{tid}", use_container_width=True):
                 st.session_state.current_thread_id = tid
+                st.session_state.suggestions = []
                 st.rerun()
         with cols[1]:
             if st.button("✕", key=f"del_{tid}"):
                 confirm_delete_dialog(tid)
+    st.divider()
+    if st.button("🚪 Đăng xuất", use_container_width=True):
+        logout()
 
 # =========================
 # MAIN UI
@@ -510,6 +642,8 @@ if user_question:
         new_id = str(uuid.uuid4())
         st.session_state.threads[new_id] = {"title": "Cuộc trò chuyện mới...", "messages": []}
         st.session_state.current_thread_id = new_id
+        if st.session_state.user:
+            save_new_thread(st.session_state.user.id, new_id, "Cuộc trò chuyện mới...")
 
     st.markdown(f'<div class="chat-user">{user_question}</div>', unsafe_allow_html=True)
 
@@ -663,7 +797,7 @@ window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrol
     # Lưu suggestions vào session_state để hiện sau rerun
     st.session_state.suggestions = suggestions[:3]
 
-    # Lưu lịch sử (lưu answer gốc để GPT có context đầy đủ)
+    # Lưu lịch sử local
     st.session_state.threads[st.session_state.current_thread_id]["messages"].append(
         {"role": "user", "content": user_question}
     )
@@ -671,6 +805,14 @@ window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrol
         {"role": "assistant", "content": answer}
     )
 
+    # Lưu vào Supabase
+    if st.session_state.user:
+        save_message(st.session_state.current_thread_id, "user", user_question)
+        save_message(st.session_state.current_thread_id, "assistant", answer)
+
     if len(st.session_state.threads[st.session_state.current_thread_id]["messages"]) <= 2:
-        st.session_state.threads[st.session_state.current_thread_id]["title"] = generate_chat_title(user_question)
+        title = generate_chat_title(user_question)
+        st.session_state.threads[st.session_state.current_thread_id]["title"] = title
+        if st.session_state.user:
+            update_thread_title(st.session_state.current_thread_id, title)
     st.rerun()
