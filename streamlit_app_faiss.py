@@ -9,6 +9,13 @@ from openai import OpenAI
 from sentence_transformers import SentenceTransformer
 from supabase import create_client, Client
 
+import socket
+try:
+    socket.getaddrinfo("sxvfdiqpmhvuybpufzu.supabase.co", 443)
+    st.write("✅ DNS OK")
+except Exception as e:
+    st.write(f"❌ DNS lỗi: {e}")
+st.stop()
 # =========================
 # KHỞI TẠO
 # =========================
