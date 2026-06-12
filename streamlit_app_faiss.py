@@ -286,8 +286,7 @@ if st.session_state.user is None:
 
     col1, col2, col3 = st.columns([1, 1.5, 1])
     with col2:
-        st.markdown("<h2 style='text-align:center;margin-bottom:4px;'>🚦 Traffic Law AI</h2>", unsafe_allow_html=True)
-        st.markdown("<p style='text-align:center;color:#94a3b8;margin-bottom:24px;'>Đăng nhập để lưu lịch sử hội thoại</p>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align:center;margin-bottom:24px;'>🚦 Traffic Law AI</h2>", unsafe_allow_html=True)
 
         tab1, tab2 = st.tabs(["🔑 Đăng nhập", "📝 Đăng ký"])
 
