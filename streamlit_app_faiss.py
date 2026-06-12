@@ -26,7 +26,10 @@ except Exception:
     SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
 
 client = OpenAI(api_key=api_key)
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+try:
+    supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+except Exception:
+    supabase = None
 
 st.set_page_config(
     page_title="Traffic Law RAG Chatbot",
