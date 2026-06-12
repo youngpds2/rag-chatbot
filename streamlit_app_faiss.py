@@ -90,6 +90,7 @@ def load_threads_from_db(user_id):
             }
     except Exception as e:
         st.error(f"Lỗi load lịch sử: {e}")
+    st.sidebar.caption(f"📦 Loaded {len(threads)} threads")
     return threads
 
 def save_new_thread(user_id, thread_id, title):
@@ -106,9 +107,11 @@ def update_thread_title(thread_id, title):
 
 def save_message(thread_id, role, content):
     try:
-        supabase.table("messages").insert({"conversation_id": thread_id, "role": role, "content": content}).execute()
+        res = supabase.table("messages").insert({"conversation_id": thread_id, "role": role, "content": content}).execute()
+        return True
     except Exception as e:
-        pass
+        st.sidebar.error(f"Lỗi lưu message: {e}")
+        return False
 
 def delete_thread_from_db(thread_id):
     try:
@@ -809,8 +812,8 @@ window.parent.document.querySelector('[data-testid="stAppViewContainer"]').scrol
 
     # Lưu vào Supabase
     if st.session_state.user:
-        save_message(st.session_state.current_thread_id, "user", user_question)
-        save_message(st.session_state.current_thread_id, "assistant", answer)
+        r1 = save_message(st.session_state.current_thread_id, "user", user_question)
+        r2 = save_message(st.session_state.current_thread_id, "assistant", answer)
 
     if len(st.session_state.threads[st.session_state.current_thread_id]["messages"]) <= 2:
         title = generate_chat_title(user_question)
